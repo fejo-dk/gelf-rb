@@ -149,6 +149,10 @@ class TestLogger < Test::Unit::TestCase
       assert_not_equal GELF::WARN, @deserialized_hash['level']
       assert_equal GELF::RAILS_LEVELS_MAPPING[GELF::WARN], @deserialized_hash['level']
     end
+
+    should "have the last_chunk_id initialized with 0" do
+      assert_equal 0, GELF::RailsLogger.last_chunk_id
+    end
   end
     
 end

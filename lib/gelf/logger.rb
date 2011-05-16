@@ -58,6 +58,7 @@ module GELF
   
   class RailsLogger < Notifier
     include LoggerCompatibility
+    @last_chunk_id = 0
 
     def map_level(level)
       GELF::RAILS_LEVELS_MAPPING[level]
